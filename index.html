@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>For Divyansh 💘</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  background: radial-gradient(circle at top, #ffafbd, #ffc3a0);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  overflow: hidden;
+}
+
+.card {
+  background: rgba(255,255,255,0.25);
+  backdrop-filter: blur(10px);
+  padding: 45px;
+  border-radius: 35px;
+  box-shadow: 0 25px 60px rgba(0,0,0,0.25);
+  max-width: 90%;
+}
+
+h1 {
+  color: #fff;
+  font-size: 34px;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #fff;
+  font-size: 18px;
+  line-height: 1.5;
+}
+
+button {
+  padding: 14px 32px;
+  font-size: 18px;
+  border-radius: 30px;
+  border: none;
+  cursor: pointer;
+  margin: 18px 10px;
+  transition: transform 0.2s ease;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+#yes {
+  background: #fff;
+  color: #ff4f7b;
+  font-weight: bold;
+}
+
+#no {
+  background: #ff4f7b;
+  color: #fff;
+  position: absolute;
+}
+
+.hidden {
+  display: none;
+}
+
+.love {
+  animation: reveal 1.8s ease;
+}
+
+@keyframes reveal {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.heart {
+  position: absolute;
+  font-size: 26px;
+  animation: float 5s linear infinite;
+}
+
+@keyframes float {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-900px); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<!-- FIRST SCREEN -->
+<div class="card" id="question">
+  <h1>Hey Divyansh 💌</h1>
+  <p>
+    I’ve been meaning to ask you something…<br>
+    (and no, you don’t really have a choice 😌)
+  </p>
+  <h1>Will you be my Valentine? 💖</h1>
+
+  <button id="yes" onclick="accept()">YES, OBVIOUSLY ❤️</button>
+  <button id="no" onmouseover="escape()">No 👀</button>
+</div>
+
+<!-- SECOND SCREEN -->
+<div class="card hidden love" id="accepted">
+  <h1>HAHA, I KNEW IT 🥹❤️</h1>
+  <p>
+    Divyansh, you really thought you could say no? 😏<br><br>
+    Thank you for choosing me.<br>
+    Thank you for being mine.<br><br>
+    Today, tomorrow, and all the little days in between —<br>
+    you’re my Valentine 💘
+  </p>
+</div>
+
+<script>
+function escape() {
+  const no = document.getElementById("no");
+  no.style.top = Math.random() * 80 + "%";
+  no.style.left = Math.random() * 80 + "%";
+}
+
+function accept() {
+  document.getElementById("question").classList.add("hidden");
+  document.getElementById("accepted").classList.remove("hidden");
+  hearts();
+}
+
+function hearts() {
+  setInterval(() => {
+    const heart = document.createElement("div");
+    heart.className = "heart";
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.bottom = "0";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 5000);
+  }, 250);
+}
+</script>
+
+</body>
+</html>
